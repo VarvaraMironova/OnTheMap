@@ -9,188 +9,89 @@
 import Foundation
 
 class OTMClient: NSObject {
-    /* Shared session */
-//    var sharedSession: NSURLSession
-//    
-//    /* Configuration object */
-//    var config = OTMConfig()
-//    
-//    /* Authentication state */
-//    var sessionID : String? = nil
-//    var userID : Int? = nil
-//    
-//    override init() {
-//        sharedSession = NSURLSession.sharedSession()
-//        super.init()
-//    }
-//    
-//    // MARK: - GET
-//    
-//    func taskForGETMethod(method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
-//        
-//        /* 1. Set the parameters */
-//        var mutableParameters = parameters
-//        mutableParameters[ParameterKeys.ApiKey] = OTMConstants.ApiKey
-//        
-//        /* 2/3. Build the URL and configure the request */
-//        let urlString = Constants.BaseURLSecure + method + OTMClient.escapedParameters(mutableParameters)
-//        let url = NSURL(string: urlString)!
-//        let request = NSURLRequest(URL: url)
-//        
-//        /* 4. Make the request */
-//        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
-//            
-//            /* 5/6. Parse the data and use the data (happens in completion handler) */
-//            if let error = downloadError {
-//                let newError = OTMClient.errorForData(data, response: response, error: error)
-//                completionHandler(result: nil, error: downloadError)
-//            } else {
-//                TMDBClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
-//            }
-//        }
-//        
-//        /* 7. Start the request */
-//        task.resume()
-//        
-//        return task
-//    }
-//    
-//    func taskForGETImage(size: String, filePath: String, completionHandler: (imageData: NSData?, error: NSError?) ->  Void) -> NSURLSessionTask {
-//        
-//        /* 1. Set the parameters */
-//        // There are none...
-//        
-//        /* 2/3. Build the URL and configure the request */
-//        let urlComponents = [size, filePath]
-//        let baseURL = NSURL(string: config.baseImageURLString)!
-//        let url = baseURL.URLByAppendingPathComponent(size).URLByAppendingPathComponent(filePath)
-//        let request = NSURLRequest(URL: url)
-//        
-//        /* 4. Make the request */
-//        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
-//            
-//            /* 5/6. Parse the data and use the data (happens in completion handler) */
-//            if let error = downloadError {
-//                let newError = TMDBClient.errorForData(data, response: response, error: downloadError)
-//                completionHandler(imageData: nil, error: newError)
-//            } else {
-//                completionHandler(imageData: data, error: nil)
-//            }
-//        }
-//        
-//        /* 7. Start the request */
-//        task.resume()
-//        
-//        return task
-//    }
-//    
-//    // MARK: - POST
-//    
-//    func taskForPOSTMethod(method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
-//        
-//        /* 1. Set the parameters */
-//        var mutableParameters = parameters
-//        mutableParameters[ParameterKeys.ApiKey] = Constants.ApiKey
-//        
-//        /* 2/3. Build the URL and configure the request */
-//        let urlString = Constants.BaseURLSecure + method + TMDBClient.escapedParameters(mutableParameters)
-//        let url = NSURL(string: urlString)!
-//        let request = NSMutableURLRequest(URL: url)
-//        var jsonifyError: NSError? = nil
-//        request.HTTPMethod = "POST"
-//        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(jsonBody, options: nil, error: &jsonifyError)
-//        
-//        /* 4. Make the request */
-//        let task = session.dataTaskWithRequest(request) {data, response, downloadError in
-//            
-//            /* 5/6. Parse the data and use the data (happens in completion handler) */
-//            if let error = downloadError {
-//                let newError = TMDBClient.errorForData(data, response: response, error: error)
-//                completionHandler(result: nil, error: downloadError)
-//            } else {
-//                TMDBClient.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
-//            }
-//        }
-//        
-//        /* 7. Start the request */
-//        task.resume()
-//        
-//        return task
-//    }
-//    
-//    // MARK: - Helpers
-//    
-//    /* Helper: Substitute the key for the value that is contained within the method name */
-//    class func subtituteKeyInMethod(method: String, key: String, value: String) -> String? {
-//        if method.rangeOfString("{\(key)}") != nil {
-//            return method.stringByReplacingOccurrencesOfString("{\(key)}", withString: value)
-//        } else {
-//            return nil
-//        }
-//    }
-//    
-//    /* Helper: Given a response with error, see if a status_message is returned, otherwise return the previous error */
-//    class func errorForData(data: NSData?, response: NSURLResponse?, error: NSError) -> NSError {
-//        
-//        if let parsedResult = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil) as? [String : AnyObject] {
-//            
-//            if let errorMessage = parsedResult[TMDBClient.JSONResponseKeys.StatusMessage] as? String {
-//                
-//                let userInfo = [NSLocalizedDescriptionKey : errorMessage]
-//                
-//                return NSError(domain: "TMDB Error", code: 1, userInfo: userInfo)
-//            }
-//        }
-//        
-//        return error
-//    }
-//    
-//    /* Helper: Given raw JSON, return a usable Foundation object */
-//    class func parseJSONWithCompletionHandler(data: NSData, completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
-//        
-//        var parsingError: NSError? = nil
-//        
-//        let parsedResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
-//        
-//        if let error = parsingError {
-//            completionHandler(result: nil, error: error)
-//        } else {
-//            completionHandler(result: parsedResult, error: nil)
-//        }
-//    }
-//    
-//    /* Helper function: Given a dictionary of parameters, convert to a string for a url */
-//    class func escapedParameters(parameters: [String : AnyObject]) -> String {
-//        
-//        var urlVars = [String]()
-//        
-//        for (key, value) in parameters {
-//            
-//            /* Make sure that it is a string value */
-//            let stringValue = "\(value)"
-//            
-//            /* Escape it */
-//            let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-//            
-//            /* Append it */
-//            urlVars += [key + "=" + "\(escapedValue!)"]
-//            
-//        }
-//        
-//        return (!urlVars.isEmpty ? "?" : "") + join("&", urlVars)
-//    }
-//    
-//    // MARK: - Shared Instance
-//    
-//    class func sharedInstance() -> TMDBClient {
-//        
-//        struct Singleton {
-//            static var sharedInstance = TMDBClient()
-//        }
-//        
-//        return Singleton.sharedInstance
-//    }
-   
+    var sharedSession: NSURLSession
+    var sessionID    : String? = nil
+    var userID       : String? = nil
+    
+    // MARK: - Class methods
+    
+    class func sharedInstance() -> OTMClient {
+        struct Singleton {
+            static var sharedInstance = OTMClient()
+        }
+        
+        return Singleton.sharedInstance
+    }
+    
+    // MARK: - Initializations and Deallocations
+    
+    override init() {
+        sharedSession = NSURLSession.sharedSession()
+        super.init()
+    }
+    
+    class func getRequest(baseUrl: String, method: String, headers: [String: String], parameters: [String: String]) -> NSMutableURLRequest {
+        let url = NSURL(string: baseUrl + method + escapedParameters(parameters))
+        let request = NSMutableURLRequest(URL: url!)
+        
+        request.HTTPMethod = "GET"
+        request.timeoutInterval = 20.0;
+        for (key, value) in headers {
+            request.addValue(value, forHTTPHeaderField: key)
+        }
+        
+        return request
+    }
+    
+    class func postRequest(baseUrl: String, method: String, headers: [String: String], body: [String: AnyObject], parameters: [String: String]) -> NSMutableURLRequest {
+        let url = NSURL(string: baseUrl + method + escapedParameters(parameters))
+        
+        let request = NSMutableURLRequest(URL: url!)
+        
+        request.addValue(OTMClient.kOTMConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMConstants.kOTMHeaderField1)
+        request.addValue(OTMClient.kOTMConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMConstants.kOTMHeaderField2)
+        request.HTTPMethod = "POST"
+        request.timeoutInterval = 20.0;
+        for (key, value) in headers {
+            request.addValue(value, forHTTPHeaderField: key)
+        }
+        
+        do {
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(body, options:.PrettyPrinted)
+            request.HTTPBody = jsonData
+        } catch {
+            // report error
+        }
+        
+        return request
+    }
+    
+    class func escapedParameters(parameters: [String : AnyObject]) -> String {
+        var urlVars = [String]()
+        
+        for (key, value) in parameters {
+            let stringValue = "\(value)"
+            
+            let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+            
+            urlVars += [key + "=" + "\(escapedValue!)"]
+            
+        }
+        
+        return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
+    }
+
+    func createTask(request: NSMutableURLRequest, completionHandler: (result: NSData!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        let task = sharedSession.dataTaskWithRequest(request) {data, response, downloadError in
+            if let error = downloadError {
+                completionHandler(result: nil, error: error)
+            } else {
+                completionHandler(result: data, error: nil)
+            }
+        }
+        
+        task.resume()
+        
+        return task
+    }   
 }

@@ -8,8 +8,20 @@
 
 import UIKit
 
-struct OTMUserModel {
-    var id      : Int? = nil
-    var login   : NSString!
-    var password: NSString!
+class OTMUserModel {
+    var id      : String!
+    var key     : String!
+    var login   : String!
+    var password: String!
+    var name    : String!
+    var surName : String!
+    
+    func fill(dictionary: [String: AnyObject]){
+        if let session = dictionary["session"] as? [String: AnyObject] {
+            if let account = dictionary["account"] as? [String: AnyObject] {
+                self.id = session["id"] as! String
+                self.key = account["key"] as! String
+            }
+        }
+    }
 }

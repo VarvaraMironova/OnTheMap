@@ -9,7 +9,6 @@
 import UIKit
 
 class OTMLoginView: UIView {
-    @IBOutlet var logOutButton: UIButton!
     @IBOutlet var logInWithFBButton: UIButton!
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var logInButton: UIButton!
@@ -17,16 +16,25 @@ class OTMLoginView: UIView {
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    var loadingView: OTMLoadingView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        logOutButton.hidden = true;
         
         updateButtons()
     }
     
     func updateButtons() {
         logInButton.enabled = !loginTextField.text!.isEmpty && !passwordTextField.text!.isEmpty;
+    }
+    
+    func showLoadingView() {
+        loadingView = OTMLoadingView.loadingView(self)
+    }
+    
+    func hideLoadingView() {
+        loadingView.hide()
+        loadingView = nil
     }
 
 }

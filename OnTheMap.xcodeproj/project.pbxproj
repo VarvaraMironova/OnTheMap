@@ -14,13 +14,13 @@
 		C700D90F1B98D48C00E83EB9 /* OTMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D90E1B98D48C00E83EB9 /* OTMMapView.swift */; };
 		C700D9111B98D4A300E83EB9 /* OTMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D9101B98D4A300E83EB9 /* OTMTableViewController.swift */; };
 		C700D9131B98D4B700E83EB9 /* OTMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D9121B98D4B700E83EB9 /* OTMTableView.swift */; };
-		C700D9151B98D5AF00E83EB9 /* OTMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D9141B98D5AF00E83EB9 /* OTMTableViewCell.swift */; };
 		C700D9271B9CA39200E83EB9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C700D9261B9CA39200E83EB9 /* MapKit.framework */; };
-		C721D7DB1BA2AE18008857D0 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DA1BA2AE18008857D0 /* OTMConstants.swift */; };
+		C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */; };
 		C721D7DD1BA2AE94008857D0 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DC1BA2AE94008857D0 /* OTMClient.swift */; };
-		C721D7DF1BA2AECA008857D0 /* OTMConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DE1BA2AECA008857D0 /* OTMConvenience.swift */; };
+		C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */; };
 		C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */; };
 		C721D7E31BA2AFB5008857D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */; };
+		C72464761BBA865C00D7EAF0 /* OTMLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */; settings = {ASSET_TAGS = (); }; };
 		C72836FE1B96DB3800AD57CA /* OTMUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */; };
 		C73056E41B8CF50F00F2582D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73056E31B8CF50F00F2582D /* AppDelegate.swift */; };
 		C73056E91B8CF50F00F2582D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73056E71B8CF50F00F2582D /* Main.storyboard */; };
@@ -31,6 +31,19 @@
 		C730570C1B8CFE8600F2582D /* OTMObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */; };
 		C730570E1B8CFF6900F2582D /* OTMStudentLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */; };
 		C73057121B8CFF8E00F2582D /* OTMArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */; };
+		C7A2A2221BBC78E10089B8A2 /* OTMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
+		C7A2A2241BBC78F90089B8A2 /* OTMLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */; settings = {ASSET_TAGS = (); }; };
+		C7A2A2261BBD1C6F0089B8A2 /* OTMArrayObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */; settings = {ASSET_TAGS = (); }; };
+		C7A2A2281BBD29890089B8A2 /* OTMStudentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */; settings = {ASSET_TAGS = (); }; };
+		C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */; settings = {ASSET_TAGS = (); }; };
+		C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B511BB1D1B600D13EBF /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B521BB1D1B600D13EBF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B531BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B541BB1D1B600D13EBF /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B551BB1D1B600D13EBF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B561BB1D1B600D13EBF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		C7EB4B571BB1D1B600D13EBF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B501BB1D1B600D13EBF /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,13 +64,13 @@
 		C700D90E1B98D48C00E83EB9 /* OTMMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMMapView.swift; sourceTree = "<group>"; };
 		C700D9101B98D4A300E83EB9 /* OTMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewController.swift; sourceTree = "<group>"; };
 		C700D9121B98D4B700E83EB9 /* OTMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableView.swift; sourceTree = "<group>"; };
-		C700D9141B98D5AF00E83EB9 /* OTMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewCell.swift; sourceTree = "<group>"; };
 		C700D9261B9CA39200E83EB9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C721D7DA1BA2AE18008857D0 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
+		C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientConstants.swift; sourceTree = "<group>"; };
 		C721D7DC1BA2AE94008857D0 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
-		C721D7DE1BA2AECA008857D0 /* OTMConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConvenience.swift; sourceTree = "<group>"; };
+		C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientExtensions.swift; sourceTree = "<group>"; };
 		C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConfig.swift; sourceTree = "<group>"; };
 		C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLocationController.swift; sourceTree = "<group>"; };
 		C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMUserModel.swift; sourceTree = "<group>"; };
 		C73056DE1B8CF50F00F2582D /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73056E21B8CF50F00F2582D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +85,19 @@
 		C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMObservableObject.swift; sourceTree = "<group>"; };
 		C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentLocationModel.swift; sourceTree = "<group>"; };
 		C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMArrayModel.swift; sourceTree = "<group>"; };
+		C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLoadingView.swift; sourceTree = "<group>"; };
+		C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTMLoadingView.xib; sourceTree = "<group>"; };
+		C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMArrayObserver.swift; sourceTree = "<group>"; };
+		C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentInfoCell.swift; sourceTree = "<group>"; };
+		C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMModelConstants.swift; sourceTree = "<group>"; };
+		C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMDateExtensions.swift; sourceTree = "<group>"; };
+		C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = OnTheMap/ParseCrashReporting.framework; sourceTree = "<group>"; };
+		C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = OnTheMap/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = OnTheMap/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = OnTheMap/ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = OnTheMap/ParseUI.framework; sourceTree = "<group>"; };
+		C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = OnTheMap/Bolts.framework; sourceTree = "<group>"; };
+		C7EB4B501BB1D1B600D13EBF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = OnTheMap/Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +106,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C721D7E31BA2AFB5008857D0 /* CoreLocation.framework in Frameworks */,
+				C7EB4B571BB1D1B600D13EBF /* Parse.framework in Frameworks */,
+				C7EB4B511BB1D1B600D13EBF /* ParseCrashReporting.framework in Frameworks */,
+				C7EB4B551BB1D1B600D13EBF /* ParseUI.framework in Frameworks */,
+				C7EB4B521BB1D1B600D13EBF /* ParseFacebookUtils.framework in Frameworks */,
 				C700D9271B9CA39200E83EB9 /* MapKit.framework in Frameworks */,
+				C7EB4B541BB1D1B600D13EBF /* ParseTwitterUtils.framework in Frameworks */,
+				C7EB4B531BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework in Frameworks */,
+				C7EB4B561BB1D1B600D13EBF /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +132,7 @@
 			children = (
 				C700D9101B98D4A300E83EB9 /* OTMTableViewController.swift */,
 				C700D9121B98D4B700E83EB9 /* OTMTableView.swift */,
-				C700D9141B98D5AF00E83EB9 /* OTMTableViewCell.swift */,
+				C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */,
 			);
 			path = OTMTableViewController;
 			sourceTree = "<group>";
@@ -125,6 +158,13 @@
 		C700D9281B9CA3A700E83EB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */,
+				C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */,
+				C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */,
+				C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */,
+				C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */,
+				C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */,
+				C7EB4B501BB1D1B600D13EBF /* Parse.framework */,
 				C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */,
 				C700D9261B9CA39200E83EB9 /* MapKit.framework */,
 			);
@@ -134,12 +174,20 @@
 		C721D7D91BA2AC40008857D0 /* OTMManager */ = {
 			isa = PBXGroup;
 			children = (
-				C721D7DA1BA2AE18008857D0 /* OTMConstants.swift */,
-				C721D7DE1BA2AECA008857D0 /* OTMConvenience.swift */,
+				C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */,
+				C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */,
 				C721D7DC1BA2AE94008857D0 /* OTMClient.swift */,
 				C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */,
 			);
 			path = OTMManager;
+			sourceTree = "<group>";
+		};
+		C72464741BBA863600D7EAF0 /* OTMLocationController */ = {
+			isa = PBXGroup;
+			children = (
+				C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */,
+			);
+			path = OTMLocationController;
 			sourceTree = "<group>";
 		};
 		C73056D51B8CF50F00F2582D = {
@@ -215,16 +263,8 @@
 				C73057061B8CF58C00F2582D /* LocationManager */,
 				C721D7D91BA2AC40008857D0 /* OTMManager */,
 				C73057081B8CF58C00F2582D /* UI */,
-				C73057051B8CF58C00F2582D /* Extensions */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		C73057051B8CF58C00F2582D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C73057061B8CF58C00F2582D /* LocationManager */ = {
@@ -237,11 +277,14 @@
 		C73057071B8CF58C00F2582D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */,
 				C73057091B8CF5B800F2582D /* OTMWeakLink.swift */,
 				C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */,
 				C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */,
 				C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */,
 				C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */,
+				C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */,
+				C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,11 +292,22 @@
 		C73057081B8CF58C00F2582D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				C7A2A2201BBC78C30089B8A2 /* OTMLoadingView */,
+				C72464741BBA863600D7EAF0 /* OTMLocationController */,
 				C700D9031B98C89000E83EB9 /* OTMLoginViewController */,
 				C700D9021B98C89000E83EB9 /* OTMMapViewController */,
 				C700D9011B98C89000E83EB9 /* OTMTableViewController */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		C7A2A2201BBC78C30089B8A2 /* OTMLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */,
+				C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */,
+			);
+			path = OTMLoadingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +394,7 @@
 			files = (
 				C73056E91B8CF50F00F2582D /* Main.storyboard in Resources */,
 				C73056EE1B8CF50F00F2582D /* LaunchScreen.xib in Resources */,
+				C7A2A2241BBC78F90089B8A2 /* OTMLoadingView.xib in Resources */,
 				C73056EB1B8CF50F00F2582D /* Images.xcassets in Resources */,
 				C700D90B1B98CE0F00E83EB9 /* LoginWithFB.png in Resources */,
 			);
@@ -359,20 +414,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A2A2281BBD29890089B8A2 /* OTMStudentInfoCell.swift in Sources */,
+				C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */,
 				C730570C1B8CFE8600F2582D /* OTMObservableObject.swift in Sources */,
 				C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */,
 				C72836FE1B96DB3800AD57CA /* OTMUserModel.swift in Sources */,
-				C721D7DB1BA2AE18008857D0 /* OTMConstants.swift in Sources */,
+				C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */,
 				C700D9131B98D4B700E83EB9 /* OTMTableView.swift in Sources */,
 				C700D90F1B98D48C00E83EB9 /* OTMMapView.swift in Sources */,
 				C730570A1B8CF5B800F2582D /* OTMWeakLink.swift in Sources */,
 				C73056E41B8CF50F00F2582D /* AppDelegate.swift in Sources */,
+				C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */,
 				C721D7DD1BA2AE94008857D0 /* OTMClient.swift in Sources */,
+				C72464761BBA865C00D7EAF0 /* OTMLocationController.swift in Sources */,
+				C7A2A2261BBD1C6F0089B8A2 /* OTMArrayObserver.swift in Sources */,
 				C700D9111B98D4A300E83EB9 /* OTMTableViewController.swift in Sources */,
-				C700D9151B98D5AF00E83EB9 /* OTMTableViewCell.swift in Sources */,
+				C7A2A2221BBC78E10089B8A2 /* OTMLoadingView.swift in Sources */,
 				C730570E1B8CFF6900F2582D /* OTMStudentLocationModel.swift in Sources */,
 				C700D90D1B98D47700E83EB9 /* OTMMapViewController.swift in Sources */,
-				C721D7DF1BA2AECA008857D0 /* OTMConvenience.swift in Sources */,
+				C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */,
 				C73057121B8CFF8E00F2582D /* OTMArrayModel.swift in Sources */,
 				C700D9091B98C8EE00E83EB9 /* OTMLoginView.swift in Sources */,
 				C700D9061B98C8B500E83EB9 /* OTMLoginViewController.swift in Sources */,
@@ -503,6 +563,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OnTheMap",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idapGroup.$(PRODUCT_NAME:rfc1034identifier)";
@@ -514,6 +578,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OnTheMap",
+				);
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.idapGroup.$(PRODUCT_NAME:rfc1034identifier)";
