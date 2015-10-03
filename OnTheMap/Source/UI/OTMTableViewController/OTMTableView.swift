@@ -10,5 +10,6 @@ import UIKit
 
 class OTMTableView: UIView {
     @IBOutlet var studentsInfoTableView: UITableView!
-    
+    @IBOutlet var postLocationButton: UIButton!
+    @IBOutlet var logoutButton: UIButton!
 }

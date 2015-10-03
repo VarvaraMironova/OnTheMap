@@ -15,11 +15,14 @@
 		C700D9111B98D4A300E83EB9 /* OTMTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D9101B98D4A300E83EB9 /* OTMTableViewController.swift */; };
 		C700D9131B98D4B700E83EB9 /* OTMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C700D9121B98D4B700E83EB9 /* OTMTableView.swift */; };
 		C700D9271B9CA39200E83EB9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C700D9261B9CA39200E83EB9 /* MapKit.framework */; };
+		C721C8C01BC012490017D0BF /* OTMPostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721C8BF1BC012490017D0BF /* OTMPostLocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C721C8C21BC0126E0017D0BF /* OTMPostLocationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721C8C11BC0126E0017D0BF /* OTMPostLocationRootView.swift */; settings = {ASSET_TAGS = (); }; };
 		C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */; };
 		C721D7DD1BA2AE94008857D0 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DC1BA2AE94008857D0 /* OTMClient.swift */; };
 		C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */; };
 		C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */; };
 		C721D7E31BA2AFB5008857D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */; };
+		C723D8CF1BBE698800811929 /* OTMAnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */; settings = {ASSET_TAGS = (); }; };
 		C72464761BBA865C00D7EAF0 /* OTMLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */; settings = {ASSET_TAGS = (); }; };
 		C72836FE1B96DB3800AD57CA /* OTMUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */; };
 		C73056E41B8CF50F00F2582D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73056E31B8CF50F00F2582D /* AppDelegate.swift */; };
@@ -37,13 +40,6 @@
 		C7A2A2281BBD29890089B8A2 /* OTMStudentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */; settings = {ASSET_TAGS = (); }; };
 		C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B511BB1D1B600D13EBF /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B521BB1D1B600D13EBF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B531BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B541BB1D1B600D13EBF /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B551BB1D1B600D13EBF /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B561BB1D1B600D13EBF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		C7EB4B571BB1D1B600D13EBF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7EB4B501BB1D1B600D13EBF /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +61,14 @@
 		C700D9101B98D4A300E83EB9 /* OTMTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewController.swift; sourceTree = "<group>"; };
 		C700D9121B98D4B700E83EB9 /* OTMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableView.swift; sourceTree = "<group>"; };
 		C700D9261B9CA39200E83EB9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C721C8BF1BC012490017D0BF /* OTMPostLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMPostLocationViewController.swift; sourceTree = "<group>"; };
+		C721C8C11BC0126E0017D0BF /* OTMPostLocationRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMPostLocationRootView.swift; sourceTree = "<group>"; };
 		C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientConstants.swift; sourceTree = "<group>"; };
 		C721D7DC1BA2AE94008857D0 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientExtensions.swift; sourceTree = "<group>"; };
 		C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConfig.swift; sourceTree = "<group>"; };
 		C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMAnnotationModel.swift; sourceTree = "<group>"; };
 		C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLocationController.swift; sourceTree = "<group>"; };
 		C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMUserModel.swift; sourceTree = "<group>"; };
 		C73056DE1B8CF50F00F2582D /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,13 +90,6 @@
 		C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentInfoCell.swift; sourceTree = "<group>"; };
 		C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMModelConstants.swift; sourceTree = "<group>"; };
 		C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMDateExtensions.swift; sourceTree = "<group>"; };
-		C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = OnTheMap/ParseCrashReporting.framework; sourceTree = "<group>"; };
-		C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = OnTheMap/ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = OnTheMap/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = OnTheMap/ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = OnTheMap/ParseUI.framework; sourceTree = "<group>"; };
-		C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = OnTheMap/Bolts.framework; sourceTree = "<group>"; };
-		C7EB4B501BB1D1B600D13EBF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = OnTheMap/Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,14 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C721D7E31BA2AFB5008857D0 /* CoreLocation.framework in Frameworks */,
-				C7EB4B571BB1D1B600D13EBF /* Parse.framework in Frameworks */,
-				C7EB4B511BB1D1B600D13EBF /* ParseCrashReporting.framework in Frameworks */,
-				C7EB4B551BB1D1B600D13EBF /* ParseUI.framework in Frameworks */,
-				C7EB4B521BB1D1B600D13EBF /* ParseFacebookUtils.framework in Frameworks */,
 				C700D9271B9CA39200E83EB9 /* MapKit.framework in Frameworks */,
-				C7EB4B541BB1D1B600D13EBF /* ParseTwitterUtils.framework in Frameworks */,
-				C7EB4B531BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework in Frameworks */,
-				C7EB4B561BB1D1B600D13EBF /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,17 +143,19 @@
 		C700D9281B9CA3A700E83EB9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7EB4B4A1BB1D1B600D13EBF /* ParseCrashReporting.framework */,
-				C7EB4B4B1BB1D1B600D13EBF /* ParseFacebookUtils.framework */,
-				C7EB4B4C1BB1D1B600D13EBF /* ParseFacebookUtilsV4.framework */,
-				C7EB4B4D1BB1D1B600D13EBF /* ParseTwitterUtils.framework */,
-				C7EB4B4E1BB1D1B600D13EBF /* ParseUI.framework */,
-				C7EB4B4F1BB1D1B600D13EBF /* Bolts.framework */,
-				C7EB4B501BB1D1B600D13EBF /* Parse.framework */,
 				C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */,
 				C700D9261B9CA39200E83EB9 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C721C8BE1BC012280017D0BF /* OTMPostLocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C721C8BF1BC012490017D0BF /* OTMPostLocationViewController.swift */,
+				C721C8C11BC0126E0017D0BF /* OTMPostLocationRootView.swift */,
+			);
+			path = OTMPostLocationViewController;
 			sourceTree = "<group>";
 		};
 		C721D7D91BA2AC40008857D0 /* OTMManager */ = {
@@ -285,6 +272,7 @@
 				C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */,
 				C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */,
 				C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */,
+				C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,10 +281,11 @@
 			isa = PBXGroup;
 			children = (
 				C7A2A2201BBC78C30089B8A2 /* OTMLoadingView */,
-				C72464741BBA863600D7EAF0 /* OTMLocationController */,
 				C700D9031B98C89000E83EB9 /* OTMLoginViewController */,
+				C72464741BBA863600D7EAF0 /* OTMLocationController */,
 				C700D9021B98C89000E83EB9 /* OTMMapViewController */,
 				C700D9011B98C89000E83EB9 /* OTMTableViewController */,
+				C721C8BE1BC012280017D0BF /* OTMPostLocationViewController */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -418,6 +407,7 @@
 				C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */,
 				C730570C1B8CFE8600F2582D /* OTMObservableObject.swift in Sources */,
 				C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */,
+				C721C8C01BC012490017D0BF /* OTMPostLocationViewController.swift in Sources */,
 				C72836FE1B96DB3800AD57CA /* OTMUserModel.swift in Sources */,
 				C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */,
 				C700D9131B98D4B700E83EB9 /* OTMTableView.swift in Sources */,
@@ -433,9 +423,11 @@
 				C730570E1B8CFF6900F2582D /* OTMStudentLocationModel.swift in Sources */,
 				C700D90D1B98D47700E83EB9 /* OTMMapViewController.swift in Sources */,
 				C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */,
+				C721C8C21BC0126E0017D0BF /* OTMPostLocationRootView.swift in Sources */,
 				C73057121B8CFF8E00F2582D /* OTMArrayModel.swift in Sources */,
 				C700D9091B98C8EE00E83EB9 /* OTMLoginView.swift in Sources */,
 				C700D9061B98C8B500E83EB9 /* OTMLoginViewController.swift in Sources */,
+				C723D8CF1BBE698800811929 /* OTMAnnotationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

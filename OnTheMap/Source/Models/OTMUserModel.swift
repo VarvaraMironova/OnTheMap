@@ -9,12 +9,13 @@
 import UIKit
 
 class OTMUserModel {
-    var id      : String!
-    var key     : String!
-    var login   : String!
-    var password: String!
-    var name    : String!
-    var surName : String!
+    var id            : String!
+    var key           : String!
+    var login         : String!
+    var password      : String!
+    var name          : String!
+    var surName       : String!
+    var locationPoster: Bool!
     
     func fill(dictionary: [String: AnyObject]){
         if let session = dictionary["session"] as? [String: AnyObject] {

@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MapKit
 
 class OTMMapView: UIView {
-
-    
-
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var logoutButton: UIButton!
+    @IBOutlet var postLocationButton: UIButton!
 }

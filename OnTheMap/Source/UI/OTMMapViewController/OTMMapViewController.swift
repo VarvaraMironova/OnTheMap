@@ -7,17 +7,53 @@
 //
 
 import UIKit
+import MapKit
 
-class OTMMapViewController: OTMLocationController {
+class OTMMapViewController: OTMLocationController, MKMapViewDelegate {
+    var rootView: OTMMapView! {
+        get {
+            if isViewLoaded() && self.view.isKindOfClass(OTMMapView) {
+                return self.view as! OTMMapView
+            } else {
+                return nil
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        for userModel in self.arrayModel.models {
+            self.rootView.mapView.addAnnotation(userModel.annotation)
+        }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation.isKindOfClass(MKUserLocation) {
+            return nil;
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier("pin") as? MKPinAnnotationView
+        
+        if nil == annotationView {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            annotationView!.canShowCallout = true
+            
+        }
+        
+        annotationView!.rightCalloutAccessoryView = UIButton(type:.DetailDisclosure)
+        
+        return annotationView
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            if let annotation = view.annotation as! OTMAnnotationModel? {
+                if let url = NSURL(string: annotation.subtitle!) {
+                    showStudentInfoInSafari(url)
+                }
+            }
+        }
     }
 
 }

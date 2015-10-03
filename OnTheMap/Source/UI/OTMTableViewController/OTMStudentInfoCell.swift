@@ -13,7 +13,7 @@ class OTMStudentInfoCell: UITableViewCell {
     @IBOutlet var locationImageView: UIImageView!
 
     func fillWithModel(model:OTMStudentLocationModel) {
-        nameLabel.text = model.userName + "  " + model.surName
+        nameLabel.text = model.firstName + "  " + model.lastName
     }
 
 }

@@ -26,6 +26,30 @@ extension OTMClient {
         })
     }
     
+    func logout(completionHandler:(success: Bool, errorString: String?) -> Void) {
+        let logoutRequest = OTMClient.deleteRequest(kOTMURLs.Udacity, method: kOTMMethods.Session)
+        createTask(logoutRequest){data, error in
+            if (nil != error) {
+                completionHandler(success: false, errorString: kOTMMessages.ConnectionFailure)
+            } else {
+                let logoutData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
+                do {
+                    let responseDictionary = try NSJSONSerialization.JSONObjectWithData(logoutData, options:NSJSONReadingOptions.AllowFragments) as! [String : AnyObject]
+                    if let session = responseDictionary["session"] as? [String : String] {
+                        if let sessionID = session["id"] as String! {
+                            print(sessionID, self.sessionID)
+                            completionHandler(success: true, errorString: nil)
+                        }
+                    } else {
+                        completionHandler(success: false, errorString: kOTMMessages.NoJsonFailure)
+                    }
+                } catch {
+                    completionHandler(success: false, errorString: kOTMMessages.ReadJsonFailure)
+                }
+            }
+        }
+    }
+    
     func getUserId(email:String, password:String, completionHandler:(success: Bool, errorString: String?) -> Void) {
         let body = ["udacity": [ "username": email, "password": password]]
         let parameters = [String:String]()
@@ -44,7 +68,15 @@ extension OTMClient {
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                             if let userModel = appDelegate.userModel as OTMUserModel! {
                                 userModel.fill(responseDictionary)
+                                
+                                if let session = responseDictionary["session"] as? [String : String] {
+                                    if let sessionID = session["id"] as String! {
+                                        self.sessionID = sessionID
+                                    }
+                                }
+                                    
                                 self.userID = userModel.key
+                                
                                 completionHandler(success: true, errorString: nil)
                             } else {
                                 completionHandler(success: false, errorString: "Cannot get userID")

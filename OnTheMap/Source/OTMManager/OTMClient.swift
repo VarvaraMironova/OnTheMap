@@ -66,6 +66,25 @@ class OTMClient: NSObject {
         return request
     }
     
+    class func deleteRequest(baseUrl: String, method: String) -> NSMutableURLRequest {
+        let url = NSURL(string: baseUrl + method)
+        let request = NSMutableURLRequest(URL: url!)
+        
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        for cookie in (sharedCookieStorage.cookies )! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        request.HTTPMethod = "DELETE"
+        request.timeoutInterval = 20.0;
+        
+        return request
+    }
+    
     class func escapedParameters(parameters: [String : AnyObject]) -> String {
         var urlVars = [String]()
         
