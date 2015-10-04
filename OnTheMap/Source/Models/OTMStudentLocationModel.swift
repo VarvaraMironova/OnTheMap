@@ -16,12 +16,21 @@ class OTMStudentLocationModel: NSObject {
     var firstName  : String!
     var lastName   : String!
     var mapString  : String!
-    var url        : NSURL!
+    var url        : NSURL! = NSURL(string: "")
     var updateDate : NSDate!
     
+    override init() {
+        super.init()
+        
+        
+    }
+    
     init(result: [String: AnyObject]) {
+        super.init()
+        
         self.mapString = result["mapString"] as! String
         self.uniqueKey = result["uniqueKey"] as! String
+        self.objectId = result["objectId"] as! String
         
         let firstName =  result["firstName"] as! String
         let lastName = result["lastName"] as! String

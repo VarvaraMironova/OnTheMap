@@ -8,17 +8,12 @@
 
 import UIKit
 
-class OTMLocationController: UIViewController, OTMArrayObserver {
+class OTMLocationController: UIViewController {
     var userModel: OTMUserModel!
-    var arrayModel : OTMArrayModel = OTMArrayModel() {
-        didSet {
-            self.arrayModel.removeObserver(self)
-            arrayModel.addObserver(self)
-        }
-    }
+    var arrayModel : OTMArrayModel = OTMArrayModel()
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             arrayModel = appDelegate.locations!
@@ -41,32 +36,17 @@ class OTMLocationController: UIViewController, OTMArrayObserver {
     
     @IBAction func onPostLocationButton(sender: AnyObject) {
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") as! OTMLoginViewController
+            // check if there is a location user posted -> show alert, else -> post location
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("PostLocationViewController") as!OTMPostLocationViewController
             self.presentViewController(controller, animated: true, completion: nil)
         })
     }
-    
-    func arrayModelDidAddModel(arrayModel:OTMArrayModel, model:AnyObject) {
-        
-    }
-    
-    func arrayModelDidRemoveModelWithIndex(arrayModel:OTMArrayModel, index:Int) {
-        
-    }
-    
+
     func showStudentInfoInSafari(url: NSURL) {
         let app = UIApplication.sharedApplication()
         if app.canOpenURL(url) {
             app.openURL(url)
         }
-    }
-    
-    private func showOverwriteAlert() {
-        dispatch_async(dispatch_get_main_queue(), {
-            let alertViewController: UIAlertController = UIAlertController(title: "Oops!", message: "", preferredStyle: .Alert)
-            alertViewController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alertViewController, animated: true, completion: nil)
-        })
     }
     
     private func displayError(error:String) {

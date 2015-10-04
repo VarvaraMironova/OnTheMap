@@ -48,9 +48,32 @@ class OTMClient: NSObject {
         
         let request = NSMutableURLRequest(URL: url!)
         
-        request.addValue(OTMClient.kOTMConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMConstants.kOTMHeaderField1)
-        request.addValue(OTMClient.kOTMConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMConstants.kOTMHeaderField2)
+        request.addValue(OTMClient.kOTMHeaderConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMHeaderConstants.kOTMHeaderField1)
+        request.addValue(OTMClient.kOTMHeaderConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMHeaderConstants.kOTMHeaderField2)
         request.HTTPMethod = "POST"
+        request.timeoutInterval = 20.0;
+        for (key, value) in headers {
+            request.addValue(value, forHTTPHeaderField: key)
+        }
+        
+        do {
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(body, options:.PrettyPrinted)
+            request.HTTPBody = jsonData
+        } catch {
+            // report error
+        }
+        
+        return request
+    }
+    
+    class func putRequest(baseUrl: String, method: String, headers: [String: String], body: [String: AnyObject], parameters: [String: String]) -> NSMutableURLRequest {
+        let url = NSURL(string: baseUrl + method + escapedParameters(parameters))
+        
+        let request = NSMutableURLRequest(URL: url!)
+        
+        request.addValue(OTMClient.kOTMHeaderConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMHeaderConstants.kOTMHeaderField1)
+        request.addValue(OTMClient.kOTMHeaderConstants.kOTMJSON, forHTTPHeaderField: OTMClient.kOTMHeaderConstants.kOTMHeaderField2)
+        request.HTTPMethod = "PUT"
         request.timeoutInterval = 20.0;
         for (key, value) in headers {
             request.addValue(value, forHTTPHeaderField: key)

@@ -20,11 +20,12 @@ class OTMMapViewController: OTMLocationController, MKMapViewDelegate {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        for userModel in self.arrayModel.models {
-            self.rootView.mapView.addAnnotation(userModel.annotation)
+        for studentModel in self.arrayModel.models {
+            self.rootView.mapView.removeAnnotation(studentModel.annotation)
+            self.rootView.mapView.addAnnotation(studentModel.annotation)
         }
     }
 

@@ -8,21 +8,21 @@
 
 import UIKit
 
-class OTMUserModel {
-    var id            : String!
-    var key           : String!
+class OTMUserModel: OTMStudentLocationModel {
     var login         : String!
     var password      : String!
-    var name          : String!
-    var surName       : String!
-    var locationPoster: Bool!
     
     func fill(dictionary: [String: AnyObject]){
         if let session = dictionary["session"] as? [String: AnyObject] {
+            self.objectId = session["id"] as! String
             if let account = dictionary["account"] as? [String: AnyObject] {
-                self.id = session["id"] as! String
-                self.key = account["key"] as! String
+                self.uniqueKey = account["key"] as! String
             }
+        }
+        
+        if let userResponse = dictionary["user"] as? [String: AnyObject] {
+            self.firstName = userResponse["first_name"] as! String
+            self.lastName = userResponse["last_name"] as! String
         }
     }
 }

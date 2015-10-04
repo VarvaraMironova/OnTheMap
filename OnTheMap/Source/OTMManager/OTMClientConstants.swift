@@ -30,11 +30,16 @@ extension OTMClient {
         static let ConnectionFailure = "Connection failure. Please, try again later"
         static let ReadJsonFailure   = "JSON does not contain a dictionary"
         static let NoJsonFailure     = "JSON failed"
+        static let PostSuccess       = "You have successfully posted Your location"
     }
     
-    struct kOTMConstants {
-        static let kOTMJSON         = "application/json"
-        static let kOTMHeaderField1 = "Accept"
-        static let kOTMHeaderField2 = "Content-Type"
+    struct kOTMHeaderConstants {
+        static let kOTMJSON            = "application/json"
+        static let kOTMHeaderField1    = "Accept"
+        static let kOTMHeaderField2    = "Content-Type"
+        static let kOTMParseIdKey      = "X-Parse-Application-Id"
+        static let kOTMParseRestApiKey = "X-Parse-REST-API-Key"
+        static let kOTMLimit           = "1000"
     }
+
 }

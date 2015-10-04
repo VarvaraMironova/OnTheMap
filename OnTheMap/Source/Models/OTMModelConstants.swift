@@ -10,4 +10,9 @@ struct OTMModelConstants {
     static let DateFormatter = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
     static let ParseAPIKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
     static let FaceboorId  = "365362206864879"
+    
+    struct kOTMModelKeys {
+        static let mapString = "mapString"
+        static let Udacity = "https://www.udacity.com/"
+    }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OTMArrayModel: OTMObservableObject {
+class OTMArrayModel: NSObject {
     private var mutableModels: NSMutableArray!
     var models: [OTMStudentLocationModel] {
         get {
@@ -17,21 +17,18 @@ class OTMArrayModel: OTMObservableObject {
     }
     
     override init () {
+        super.init()
+
         mutableModels = NSMutableArray()
     }
     
     func addModel(model:OTMStudentLocationModel) {
         mutableModels.addObject(model)
-        
-        notifyObserbers(Selector("arrayModelDidAddModel:"), object:model)
     }
     
     func removeModel(model:OTMStudentLocationModel) {
         if mutableModels.containsObject(model) {
-            let index = indexOfObject(model)
             mutableModels.removeObject(model)
-            
-            notifyObserbers(Selector("arrayModelDidRemoveModelWithIndex:"), object:index)
         }
     }
     

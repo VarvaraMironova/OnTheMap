@@ -19,6 +19,12 @@ class OTMTableViewController: OTMLocationController, UITableViewDelegate, UITabl
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        rootView.studentsInfoTableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayModel.count()
     }
@@ -34,6 +40,6 @@ class OTMTableViewController: OTMLocationController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let studentModel = arrayModel.objectAtIndex(indexPath.row) as! OTMStudentLocationModel
-        showStudentInfoInSafari(studentModel.url)
+        showStudentInfoInSafari(studentModel.url!)
     }
 }

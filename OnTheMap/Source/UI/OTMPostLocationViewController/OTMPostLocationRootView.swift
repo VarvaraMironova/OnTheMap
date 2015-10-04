@@ -9,11 +9,7 @@
 import UIKit
 import MapKit
 
-class OTMPostLocationRootView: UIView {
-    @IBOutlet var enterLocationContainerView: UIView!
-    @IBOutlet var mapContainerView          : UIView!
-    @IBOutlet var locationTextView          : UITextView!
-    
+class OTMPostLocationRootView: OTMView {
     @IBOutlet var searchButton              : UIButton!
     @IBOutlet var submitButton              : UIButton!
     @IBOutlet var cancelButton              : UIButton!
@@ -22,4 +18,23 @@ class OTMPostLocationRootView: UIView {
     
     @IBOutlet var linkTextField             : UITextField!
     @IBOutlet var locationTextField         : UITextField!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        updateTextFields()
+        updateButtons()
+    }
+    
+    func updateTextFields() {
+        linkTextField.hidden = locationTextField.text!.isEmpty
+        locationTextField.hidden = !linkTextField.hidden
+    }
+    
+    func updateButtons() {
+        searchButton.enabled = !locationTextField.text!.isEmpty
+        searchButton.hidden = !locationTextField.text!.isEmpty && !linkTextField.text!.isEmpty
+        submitButton.hidden = !searchButton.hidden
+    }
+    
 }

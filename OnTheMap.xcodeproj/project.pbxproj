@@ -17,10 +17,10 @@
 		C700D9271B9CA39200E83EB9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C700D9261B9CA39200E83EB9 /* MapKit.framework */; };
 		C721C8C01BC012490017D0BF /* OTMPostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721C8BF1BC012490017D0BF /* OTMPostLocationViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		C721C8C21BC0126E0017D0BF /* OTMPostLocationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721C8C11BC0126E0017D0BF /* OTMPostLocationRootView.swift */; settings = {ASSET_TAGS = (); }; };
+		C721C8C41BC109D80017D0BF /* OTMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721C8C31BC109D80017D0BF /* OTMView.swift */; settings = {ASSET_TAGS = (); }; };
 		C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */; };
 		C721D7DD1BA2AE94008857D0 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DC1BA2AE94008857D0 /* OTMClient.swift */; };
 		C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */; };
-		C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */; };
 		C721D7E31BA2AFB5008857D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */; };
 		C723D8CF1BBE698800811929 /* OTMAnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */; settings = {ASSET_TAGS = (); }; };
 		C72464761BBA865C00D7EAF0 /* OTMLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -30,16 +30,14 @@
 		C73056EB1B8CF50F00F2582D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73056EA1B8CF50F00F2582D /* Images.xcassets */; };
 		C73056EE1B8CF50F00F2582D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73056EC1B8CF50F00F2582D /* LaunchScreen.xib */; };
 		C73056FA1B8CF51000F2582D /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73056F91B8CF51000F2582D /* OnTheMapTests.swift */; };
-		C730570A1B8CF5B800F2582D /* OTMWeakLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73057091B8CF5B800F2582D /* OTMWeakLink.swift */; };
-		C730570C1B8CFE8600F2582D /* OTMObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */; };
 		C730570E1B8CFF6900F2582D /* OTMStudentLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */; };
 		C73057121B8CFF8E00F2582D /* OTMArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */; };
 		C7A2A2221BBC78E10089B8A2 /* OTMLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */; settings = {ASSET_TAGS = (); }; };
 		C7A2A2241BBC78F90089B8A2 /* OTMLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */; settings = {ASSET_TAGS = (); }; };
-		C7A2A2261BBD1C6F0089B8A2 /* OTMArrayObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */; settings = {ASSET_TAGS = (); }; };
 		C7A2A2281BBD29890089B8A2 /* OTMStudentInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */; settings = {ASSET_TAGS = (); }; };
 		C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */; settings = {ASSET_TAGS = (); }; };
 		C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
+		C7F8B5DA1BC1876B00F06770 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F8B5D91BC1876B00F06770 /* LaunchImage.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +61,10 @@
 		C700D9261B9CA39200E83EB9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C721C8BF1BC012490017D0BF /* OTMPostLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMPostLocationViewController.swift; sourceTree = "<group>"; };
 		C721C8C11BC0126E0017D0BF /* OTMPostLocationRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMPostLocationRootView.swift; sourceTree = "<group>"; };
+		C721C8C31BC109D80017D0BF /* OTMView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMView.swift; sourceTree = "<group>"; };
 		C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientConstants.swift; sourceTree = "<group>"; };
 		C721D7DC1BA2AE94008857D0 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
 		C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClientExtensions.swift; sourceTree = "<group>"; };
-		C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConfig.swift; sourceTree = "<group>"; };
 		C721D7E21BA2AFB5008857D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMAnnotationModel.swift; sourceTree = "<group>"; };
 		C72464751BBA865C00D7EAF0 /* OTMLocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLocationController.swift; sourceTree = "<group>"; };
@@ -80,16 +78,14 @@
 		C73056F31B8CF51000F2582D /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73056F81B8CF51000F2582D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C73056F91B8CF51000F2582D /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
-		C73057091B8CF5B800F2582D /* OTMWeakLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMWeakLink.swift; sourceTree = "<group>"; };
-		C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMObservableObject.swift; sourceTree = "<group>"; };
 		C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentLocationModel.swift; sourceTree = "<group>"; };
 		C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMArrayModel.swift; sourceTree = "<group>"; };
 		C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLoadingView.swift; sourceTree = "<group>"; };
 		C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTMLoadingView.xib; sourceTree = "<group>"; };
-		C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMArrayObserver.swift; sourceTree = "<group>"; };
 		C7A2A2271BBD29890089B8A2 /* OTMStudentInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMStudentInfoCell.swift; sourceTree = "<group>"; };
 		C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMModelConstants.swift; sourceTree = "<group>"; };
 		C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMDateExtensions.swift; sourceTree = "<group>"; };
+		C7F8B5D91BC1876B00F06770 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +160,6 @@
 				C721D7DA1BA2AE18008857D0 /* OTMClientConstants.swift */,
 				C721D7DE1BA2AECA008857D0 /* OTMClientExtensions.swift */,
 				C721D7DC1BA2AE94008857D0 /* OTMClient.swift */,
-				C721D7E01BA2AF1C008857D0 /* OTMConfig.swift */,
 			);
 			path = OTMManager;
 			sourceTree = "<group>";
@@ -238,6 +233,7 @@
 		C73057031B8CF58C00F2582D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C7F8B5D91BC1876B00F06770 /* LaunchImage.png */,
 				C700D90A1B98CE0F00E83EB9 /* LoginWithFB.png */,
 			);
 			path = Resources;
@@ -247,30 +243,19 @@
 			isa = PBXGroup;
 			children = (
 				C73057071B8CF58C00F2582D /* Models */,
-				C73057061B8CF58C00F2582D /* LocationManager */,
 				C721D7D91BA2AC40008857D0 /* OTMManager */,
 				C73057081B8CF58C00F2582D /* UI */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		C73057061B8CF58C00F2582D /* LocationManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LocationManager;
-			sourceTree = "<group>";
-		};
 		C73057071B8CF58C00F2582D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */,
-				C73057091B8CF5B800F2582D /* OTMWeakLink.swift */,
-				C730570B1B8CFE8600F2582D /* OTMObservableObject.swift */,
 				C73057111B8CFF8E00F2582D /* OTMArrayModel.swift */,
 				C730570D1B8CFF6900F2582D /* OTMStudentLocationModel.swift */,
 				C72836FD1B96DB3800AD57CA /* OTMUserModel.swift */,
-				C7A2A2251BBD1C6F0089B8A2 /* OTMArrayObserver.swift */,
 				C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */,
 				C723D8CE1BBE698800811929 /* OTMAnnotationModel.swift */,
 			);
@@ -295,6 +280,7 @@
 			children = (
 				C7A2A2211BBC78E10089B8A2 /* OTMLoadingView.swift */,
 				C7A2A2231BBC78F90089B8A2 /* OTMLoadingView.xib */,
+				C721C8C31BC109D80017D0BF /* OTMView.swift */,
 			);
 			path = OTMLoadingView;
 			sourceTree = "<group>";
@@ -383,6 +369,7 @@
 			files = (
 				C73056E91B8CF50F00F2582D /* Main.storyboard in Resources */,
 				C73056EE1B8CF50F00F2582D /* LaunchScreen.xib in Resources */,
+				C7F8B5DA1BC1876B00F06770 /* LaunchImage.png in Resources */,
 				C7A2A2241BBC78F90089B8A2 /* OTMLoadingView.xib in Resources */,
 				C73056EB1B8CF50F00F2582D /* Images.xcassets in Resources */,
 				C700D90B1B98CE0F00E83EB9 /* LoginWithFB.png in Resources */,
@@ -405,25 +392,22 @@
 			files = (
 				C7A2A2281BBD29890089B8A2 /* OTMStudentInfoCell.swift in Sources */,
 				C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */,
-				C730570C1B8CFE8600F2582D /* OTMObservableObject.swift in Sources */,
-				C721D7E11BA2AF1C008857D0 /* OTMConfig.swift in Sources */,
 				C721C8C01BC012490017D0BF /* OTMPostLocationViewController.swift in Sources */,
 				C72836FE1B96DB3800AD57CA /* OTMUserModel.swift in Sources */,
 				C721D7DB1BA2AE18008857D0 /* OTMClientConstants.swift in Sources */,
 				C700D9131B98D4B700E83EB9 /* OTMTableView.swift in Sources */,
 				C700D90F1B98D48C00E83EB9 /* OTMMapView.swift in Sources */,
-				C730570A1B8CF5B800F2582D /* OTMWeakLink.swift in Sources */,
 				C73056E41B8CF50F00F2582D /* AppDelegate.swift in Sources */,
 				C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */,
 				C721D7DD1BA2AE94008857D0 /* OTMClient.swift in Sources */,
 				C72464761BBA865C00D7EAF0 /* OTMLocationController.swift in Sources */,
-				C7A2A2261BBD1C6F0089B8A2 /* OTMArrayObserver.swift in Sources */,
 				C700D9111B98D4A300E83EB9 /* OTMTableViewController.swift in Sources */,
 				C7A2A2221BBC78E10089B8A2 /* OTMLoadingView.swift in Sources */,
 				C730570E1B8CFF6900F2582D /* OTMStudentLocationModel.swift in Sources */,
 				C700D90D1B98D47700E83EB9 /* OTMMapViewController.swift in Sources */,
 				C721D7DF1BA2AECA008857D0 /* OTMClientExtensions.swift in Sources */,
 				C721C8C21BC0126E0017D0BF /* OTMPostLocationRootView.swift in Sources */,
+				C721C8C41BC109D80017D0BF /* OTMView.swift in Sources */,
 				C73057121B8CFF8E00F2582D /* OTMArrayModel.swift in Sources */,
 				C700D9091B98C8EE00E83EB9 /* OTMLoginView.swift in Sources */,
 				C700D9061B98C8B500E83EB9 /* OTMLoginViewController.swift in Sources */,
