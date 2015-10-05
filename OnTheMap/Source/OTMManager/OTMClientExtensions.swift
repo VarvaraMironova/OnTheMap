@@ -10,34 +10,18 @@ import UIKit
 import Foundation
 
 extension OTMClient {
-    func login(email:String, password:String, completionHandler:(success: Bool, errorString: String?) -> Void) {
-        getUserId(email, password: password, completionHandler: {success, errorString in
+    func login(email:String, password:String, completionHandler:(success: Bool, error: NSError?) -> Void) {
+        getUserId(email, password: password, completionHandler: {success, error in
             if success {
                 self.getUserInfo(self.userID!, handler: {success, error in
-                    if success {
-                        completionHandler(success: true, errorString: nil)
+                    if nil == error {
+                        completionHandler(success: true, error: nil)
                     } else {
-                        completionHandler(success: false, errorString: error)
+                        completionHandler(success: false, error: error)
                     }
                 })
             } else {
-                completionHandler(success: false, errorString:errorString)
-            }
-        })
-    }
-    
-    func loginWithFB (email:String, password:String, completionHandler:(success: Bool, errorString: String?) -> Void) {
-        getUserId(email, password: password, completionHandler: {success, errorString in
-            if success {
-                self.getUserInfo(self.userID!, handler: {success, error in
-                    if success {
-                        completionHandler(success: true, errorString: nil)
-                    } else {
-                        completionHandler(success: false, errorString: error)
-                    }
-                })
-            } else {
-                completionHandler(success: false, errorString:errorString)
+                completionHandler(success: false, error:error)
             }
         })
     }
@@ -66,20 +50,21 @@ extension OTMClient {
         }
     }
     
-    func getUserId(email:String, password:String, completionHandler:(success: Bool, errorString: String?) -> Void) {
+    func getUserId(email:String, password:String, completionHandler:(success: Bool, error: NSError?) -> Void) {
         let body = ["udacity": [ "username": email, "password": password]]
         let parameters = [String:String]()
         let headers = [String: String]()
         let loginRequest = OTMClient.postRequest(kOTMURLs.Udacity, method: kOTMMethods.Session, headers:headers, body: body, parameters: parameters)
         createTask(loginRequest){data, error in
             if (nil != error) {
-                completionHandler(success: false, errorString: kOTMMessages.ConnectionFailure)
+                completionHandler(success: false, error: error)
             } else {
                 let authData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
                 do {
                     let responseDictionary = try NSJSONSerialization.JSONObjectWithData(authData, options:NSJSONReadingOptions.AllowFragments) as! [String : AnyObject]
-                    if let error = responseDictionary["error"] as? String {
-                        completionHandler(success: false, errorString: error)
+                    if let errorDescription = responseDictionary["error"] as? String {
+                        let error = NSError(domain: errorDescription, code: 200, userInfo: nil)
+                        completionHandler(success: false, error: error)
                     } else {
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
                             if let userModel = appDelegate.userModel as OTMUserModel! {
@@ -93,20 +78,19 @@ extension OTMClient {
                                     
                                 self.userID = userModel.uniqueKey
                                 
-                                completionHandler(success: true, errorString: nil)
-                            } else {
-                                completionHandler(success: false, errorString: "Cannot get userID")
+                                completionHandler(success: true, error: nil)
                             }
                         }
                     }
                 } catch {
-                    completionHandler(success: false, errorString: kOTMMessages.ReadJsonFailure)
+                    let error = NSError(domain: kOTMMessages.ReadJsonFailure, code: 400, userInfo: nil)
+                    completionHandler(success: false, error: error)
                 }
             }
         }
     }
     
-    func getUserInfo(userID: String, handler: (success: Bool, error: String?) -> Void) {
+    func getUserInfo(userID: String, handler: (success: Bool, error: NSError?) -> Void) {
         let parameters = [String:String]()
         let method = OTMClient.kOTMMethods.UserData.stringByReplacingOccurrencesOfString("{id}", withString: userID, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         let headers = [String: String]()
@@ -114,12 +98,13 @@ extension OTMClient {
         
         createTask(loginRequest){data, error in
             if (nil != error) {
-                handler(success: false, error: kOTMMessages.ConnectionFailure)
+                handler(success: false, error: error!)
             } else {
                 let authData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
                 do {
                     let responseDictionary = try NSJSONSerialization.JSONObjectWithData(authData, options:NSJSONReadingOptions.AllowFragments) as! [String : AnyObject]
-                    if let error = responseDictionary["error"] as? String {
+                    if let errorDescription = responseDictionary["error"] as? String {
+                        let error = NSError(domain: errorDescription, code: 300, userInfo: nil)
                         handler(success: false, error: error)
                     } else {
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
@@ -131,7 +116,8 @@ extension OTMClient {
                         handler(success: true, error: nil)
                     }
                 } catch {
-                    handler(success: false, error: kOTMMessages.ReadJsonFailure)
+                    let error = NSError(domain: kOTMMessages.ReadJsonFailure, code: 400, userInfo: nil)
+                    handler(success: false, error: error)
                 }
             }
         }

@@ -38,6 +38,7 @@
 		C7E024AF1BBDBFDE00E813B5 /* OTMModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */; settings = {ASSET_TAGS = (); }; };
 		C7E024B11BBDCD2300E813B5 /* OTMDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 		C7F8B5DA1BC1876B00F06770 /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F8B5D91BC1876B00F06770 /* LaunchImage.png */; settings = {ASSET_TAGS = (); }; };
+		C7FA1A5F1BC2F01D0088EDAE /* ShakeViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FA1A5E1BC2F01D0088EDAE /* ShakeViewExtensions.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		C7E024AE1BBDBFDE00E813B5 /* OTMModelConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMModelConstants.swift; sourceTree = "<group>"; };
 		C7E024B01BBDCD2300E813B5 /* OTMDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMDateExtensions.swift; sourceTree = "<group>"; };
 		C7F8B5D91BC1876B00F06770 /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchImage.png; sourceTree = "<group>"; };
+		C7FA1A5E1BC2F01D0088EDAE /* ShakeViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		C73057041B8CF58C00F2582D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C7FA1A5D1BC2EFEC0088EDAE /* Extensions */,
 				C73057071B8CF58C00F2582D /* Models */,
 				C721D7D91BA2AC40008857D0 /* OTMManager */,
 				C73057081B8CF58C00F2582D /* UI */,
@@ -283,6 +286,14 @@
 				C721C8C31BC109D80017D0BF /* OTMView.swift */,
 			);
 			path = OTMLoadingView;
+			sourceTree = "<group>";
+		};
+		C7FA1A5D1BC2EFEC0088EDAE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7FA1A5E1BC2F01D0088EDAE /* ShakeViewExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +423,7 @@
 				C700D9091B98C8EE00E83EB9 /* OTMLoginView.swift in Sources */,
 				C700D9061B98C8B500E83EB9 /* OTMLoginViewController.swift in Sources */,
 				C723D8CF1BBE698800811929 /* OTMAnnotationModel.swift in Sources */,
+				C7FA1A5F1BC2F01D0088EDAE /* ShakeViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

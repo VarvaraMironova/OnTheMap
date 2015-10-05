@@ -39,7 +39,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         
         rootView.showLoadingView()
         
-        OTMClient.sharedInstance().login(userModel.login, password: userModel.password) {success, errorString in
+        OTMClient.sharedInstance().login(userModel.login, password: userModel.password) {success, error in
             if success {
                 OTMClient.sharedInstance().getLocations(){success, error in
                     if success {
@@ -54,7 +54,14 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
                     }
                 }
             } else {
-                self.displayError(errorString!)
+                if error?.code == 200 {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.rootView.shakeLoginContainer()
+                        self.rootView.hideLoadingView()
+                    })
+                } else {
+                    self.displayError(error!.description)
+                }
             }
         }
     }

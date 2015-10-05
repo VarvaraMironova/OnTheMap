@@ -170,6 +170,7 @@
                             <outlet property="logInWithFBButton" destination="CVx-JR-PsZ" id="FZU-jO-GKZ"/>
                             <outlet property="loginTextField" destination="zS1-oj-DFY" id="4Jr-tX-YwX"/>
                             <outlet property="passwordTextField" destination="Mkt-tu-VXW" id="har-P2-LHW"/>
+                            <outlet property="textFieldsContainer" destination="zqa-nQ-bRk" id="JvJ-vc-CkC"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

@@ -9,6 +9,7 @@
 import UIKit
 
 class OTMLoginView: OTMView {
+    @IBOutlet var textFieldsContainer: UIView!
     @IBOutlet var logInWithFBButton: UIButton!
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var logInButton: UIButton!
@@ -23,6 +24,10 @@ class OTMLoginView: OTMView {
     
     func updateButtons() {
         logInButton.enabled = !loginTextField.text!.isEmpty && !passwordTextField.text!.isEmpty
+    }
+    
+    func shakeLoginContainer() {
+        textFieldsContainer.shake()
     }
     
 }
