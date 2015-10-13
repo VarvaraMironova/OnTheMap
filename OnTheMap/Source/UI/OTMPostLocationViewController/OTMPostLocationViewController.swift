@@ -12,7 +12,7 @@ import CoreLocation
 
 class OTMPostLocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITextFieldDelegate {
     var geocoder        : CLGeocoder!
-    var userModel       : OTMUserModel!
+    var userModel       : OTMStudentLocationModel!
     var rootView        : OTMPostLocationRootView! {
         get {
             if isViewLoaded() && self.view.isKindOfClass(OTMPostLocationRootView) {
@@ -23,8 +23,8 @@ class OTMPostLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             userModel = appDelegate.userModel
@@ -42,6 +42,10 @@ class OTMPostLocationViewController: UIViewController, CLLocationManagerDelegate
     }
 
     @IBAction func onSubmitButton(sender: AnyObject) {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            appDelegate.userModel = userModel;
+        }
+        
         rootView.endEditing(true)
         
         rootView.showLoadingView()

@@ -9,7 +9,7 @@
 import UIKit
 
 class OTMTableViewController: OTMLocationController, UITableViewDelegate, UITableViewDataSource {
-    var rootView: OTMTableView! {
+    override var rootView: OTMTableView! {
         get {
             if isViewLoaded() && self.view.isKindOfClass(OTMTableView) {
                 return self.view as! OTMTableView
@@ -19,19 +19,13 @@ class OTMTableViewController: OTMLocationController, UITableViewDelegate, UITabl
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        rootView.studentsInfoTableView.reloadData()
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayModel.count()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("OTMStudentInfoCell", forIndexPath: indexPath) as! OTMStudentInfoCell
-        let model = arrayModel.objectAtIndex(indexPath.row) as! OTMStudentLocationModel
+        let model = arrayModel.objectAtIndex(indexPath.row) 
         
         cell.fillWithModel(model)
         
@@ -39,7 +33,13 @@ class OTMTableViewController: OTMLocationController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let studentModel = arrayModel.objectAtIndex(indexPath.row) as! OTMStudentLocationModel
+        let studentModel = arrayModel.objectAtIndex(indexPath.row) 
         showStudentInfoInSafari(studentModel.url!)
+    }
+    
+    override func reloadData() {
+        super.reloadData()
+        
+        rootView.studentsInfoTableView.reloadData()
     }
 }

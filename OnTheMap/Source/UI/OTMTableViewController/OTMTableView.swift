@@ -8,8 +8,7 @@
 
 import UIKit
 
-class OTMTableView: UIView {
+class OTMTableView: OTMLocationRootView {
     @IBOutlet var studentsInfoTableView: UITableView!
-    @IBOutlet var postLocationButton: UIButton!
-    @IBOutlet var logoutButton: UIButton!
+    
 }

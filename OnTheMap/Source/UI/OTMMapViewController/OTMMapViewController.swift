@@ -10,22 +10,13 @@ import UIKit
 import MapKit
 
 class OTMMapViewController: OTMLocationController, MKMapViewDelegate {
-    var rootView: OTMMapView! {
+    override var rootView: OTMMapView! {
         get {
             if isViewLoaded() && self.view.isKindOfClass(OTMMapView) {
                 return self.view as! OTMMapView
             } else {
                 return nil
             }
-        }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        for studentModel in self.arrayModel.models {
-            self.rootView.mapView.removeAnnotation(studentModel.annotation)
-            self.rootView.mapView.addAnnotation(studentModel.annotation)
         }
     }
 
@@ -54,6 +45,18 @@ class OTMMapViewController: OTMLocationController, MKMapViewDelegate {
                     showStudentInfoInSafari(url)
                 }
             }
+        }
+    }
+    
+    override func reloadData() {
+        super.reloadData()
+        
+        let mapView = self.rootView.mapView as MKMapView
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        for studentModel in self.arrayModel.mutableModels {
+            mapView.addAnnotation(studentModel.annotation)
         }
     }
 

@@ -9,44 +9,33 @@
 import UIKit
 
 class OTMArrayModel: NSObject {
-    private var mutableModels: NSMutableArray!
-    var models: [OTMStudentLocationModel] {
-        get {
-            return mutableModels.copy() as! [OTMStudentLocationModel]
-        }
-    }
-    
-    override init () {
-        super.init()
-
-        mutableModels = NSMutableArray()
-    }
+    var mutableModels = [OTMStudentLocationModel]()
     
     func addModel(model:OTMStudentLocationModel) {
-        mutableModels.addObject(model)
+        mutableModels.append(model)
     }
     
     func removeModel(model:OTMStudentLocationModel) {
-        if mutableModels.containsObject(model) {
-            mutableModels.removeObject(model)
+        if containsObject(model) {
+            mutableModels.removeAtIndex(indexOfObject(model))
         }
     }
     
-    func objectAtIndex(index:Int) -> AnyObject {
-        return mutableModels.objectAtIndex(index)
+    func objectAtIndex(index:Int) -> OTMStudentLocationModel {
+        return mutableModels[index]
     }
     
-    func indexOfObject(object: AnyObject) -> Int {
+    func indexOfObject(model: OTMStudentLocationModel) -> Int {
         var index = 0
-        if containsObject(object) {
-            index = mutableModels.indexOfObject(object)
+        if containsObject(model) {
+            index = mutableModels.indexOf({$0.uniqueKey == model.uniqueKey})!
         }
         
         return index
     }
     
-    func containsObject(object: AnyObject) -> Bool {
-        return mutableModels.containsObject(object)
+    func containsObject(model: OTMStudentLocationModel) -> Bool {
+        return mutableModels.contains({$0.uniqueKey == model.uniqueKey})
     }
     
     func count() -> Int {
@@ -54,8 +43,7 @@ class OTMArrayModel: NSObject {
     }
     
     func sort() {
-        let sortedArray = models.sort({$0.updateDate > $1.updateDate})
-        mutableModels = NSMutableArray(array: sortedArray)
+        mutableModels.sortInPlace({$0.updateDate > $1.updateDate})
     }
     
 }

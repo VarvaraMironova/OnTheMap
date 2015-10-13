@@ -12,13 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window   : UIWindow?
-    var userModel: OTMUserModel?
+    var userModel: OTMStudentLocationModel?
     var locations: OTMArrayModel?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-        userModel = OTMUserModel()
-        
         return true
     }
 

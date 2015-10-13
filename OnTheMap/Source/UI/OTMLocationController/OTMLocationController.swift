@@ -9,15 +9,38 @@
 import UIKit
 
 class OTMLocationController: UIViewController {
-    var userModel: OTMUserModel!
+    var userModel: OTMStudentLocationModel!
     var arrayModel : OTMArrayModel = OTMArrayModel()
+    
+    var rootView: OTMLocationRootView! {
+        get {
+            if isViewLoaded() && self.view.isKindOfClass(OTMLocationRootView) {
+                return self.view as! OTMLocationRootView
+            } else {
+                return nil
+            }
+        }
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            arrayModel = appDelegate.locations!
-            userModel = appDelegate.userModel
+        reloadData()
+    }
+    
+    @IBAction func onReloadButton(sender: AnyObject) {
+        rootView.showLoadingView()
+        
+        OTMClient.sharedInstance().getLocations() {success, error in
+            dispatch_async(dispatch_get_main_queue(), {
+                self.rootView.hideLoadingView()
+                
+                if success {
+                    self.reloadData()
+                } else {
+                    self.displayError(error!)
+                }
+            })
         }
     }
     
@@ -46,6 +69,15 @@ class OTMLocationController: UIViewController {
         let app = UIApplication.sharedApplication()
         if app.canOpenURL(url) {
             app.openURL(url)
+        } else {
+            displayError("Cannot open URL. Check your internet connection.");
+        }
+    }
+    
+    func reloadData() {
+        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            arrayModel = appDelegate.locations!
+            userModel = appDelegate.userModel
         }
     }
     

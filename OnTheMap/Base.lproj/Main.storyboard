@@ -224,13 +224,25 @@
                                                     <action selector="onPostLocationButton:" destination="ptt-5P-9im" eventType="touchUpInside" id="nui-CY-i1P"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAq-3a-qxL">
+                                                <rect key="frame" x="332" y="24" width="32" height="32"/>
+                                                <animations/>
+                                                <state key="normal" image="reload"/>
+                                                <connections>
+                                                    <action selector="onReloadButton:" destination="ptt-5P-9im" eventType="touchUpInside" id="ReB-Ow-dDr"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="4fy-Zi-eMU" firstAttribute="height" secondItem="k0X-iy-vcc" secondAttribute="height" multiplier="32:80" id="9kL-fl-jtM"/>
+                                            <constraint firstItem="4fy-Zi-eMU" firstAttribute="leading" secondItem="AAq-3a-qxL" secondAttribute="trailing" constant="8" id="FtX-q3-9jR"/>
                                             <constraint firstItem="4fy-Zi-eMU" firstAttribute="centerY" secondItem="k0X-iy-vcc" secondAttribute="centerY" id="YEf-8W-uUC"/>
+                                            <constraint firstItem="4fy-Zi-eMU" firstAttribute="width" secondItem="AAq-3a-qxL" secondAttribute="width" id="b6p-rx-uVL"/>
                                             <constraint firstAttribute="trailing" secondItem="4fy-Zi-eMU" secondAttribute="trailing" constant="10" id="cln-5z-w9Z"/>
+                                            <constraint firstItem="4fy-Zi-eMU" firstAttribute="centerY" secondItem="AAq-3a-qxL" secondAttribute="centerY" id="kTg-ct-FQi"/>
+                                            <constraint firstItem="4fy-Zi-eMU" firstAttribute="height" secondItem="AAq-3a-qxL" secondAttribute="height" id="p2y-MF-Avu"/>
                                             <constraint firstItem="IQw-bJ-7ck" firstAttribute="leading" secondItem="k0X-iy-vcc" secondAttribute="leading" constant="10" id="uy7-vT-9zU"/>
                                             <constraint firstItem="IQw-bJ-7ck" firstAttribute="centerY" secondItem="k0X-iy-vcc" secondAttribute="centerY" id="vnR-81-4OX"/>
                                         </constraints>
@@ -321,6 +333,7 @@
                         <connections>
                             <outlet property="logoutButton" destination="IQw-bJ-7ck" id="0sn-tg-Zkd"/>
                             <outlet property="postLocationButton" destination="4fy-Zi-eMU" id="yr7-3b-K8I"/>
+                            <outlet property="reloadButton" destination="AAq-3a-qxL" id="fwe-8z-YNa"/>
                             <outlet property="studentsInfoTableView" destination="hWG-av-VfV" id="QD2-va-LbD"/>
                         </connections>
                     </view>
@@ -545,6 +558,14 @@
                                             <action selector="onPostLocationButton:" destination="C53-Jk-3Ad" eventType="touchUpInside" id="3nz-F9-1EP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SlJ-Rs-MOG">
+                                        <rect key="frame" x="332" y="24" width="32" height="32"/>
+                                        <animations/>
+                                        <state key="normal" image="reload"/>
+                                        <connections>
+                                            <action selector="onReloadButton:" destination="C53-Jk-3Ad" eventType="touchUpInside" id="3jl-Ud-uD7"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -552,8 +573,12 @@
                                     <constraint firstItem="UJL-Hz-Yw3" firstAttribute="height" secondItem="q6b-HR-ynF" secondAttribute="height" multiplier="32:80" id="0W4-XK-fWI"/>
                                     <constraint firstItem="UJL-Hz-Yw3" firstAttribute="centerY" secondItem="q6b-HR-ynF" secondAttribute="centerY" id="4pU-7k-C1S"/>
                                     <constraint firstItem="9LP-gB-05a" firstAttribute="leading" secondItem="q6b-HR-ynF" secondAttribute="leading" constant="10" id="EDe-RV-CXt"/>
+                                    <constraint firstItem="UJL-Hz-Yw3" firstAttribute="height" secondItem="SlJ-Rs-MOG" secondAttribute="height" id="EYN-dF-WmB"/>
                                     <constraint firstItem="9LP-gB-05a" firstAttribute="centerY" secondItem="q6b-HR-ynF" secondAttribute="centerY" id="HTV-0n-Eij"/>
+                                    <constraint firstItem="UJL-Hz-Yw3" firstAttribute="width" secondItem="SlJ-Rs-MOG" secondAttribute="width" id="XCZ-co-4DF"/>
+                                    <constraint firstItem="UJL-Hz-Yw3" firstAttribute="leading" secondItem="SlJ-Rs-MOG" secondAttribute="trailing" constant="8" id="aN3-Xa-SDh"/>
                                     <constraint firstAttribute="trailing" secondItem="UJL-Hz-Yw3" secondAttribute="trailing" constant="10" id="owP-GY-pbc"/>
+                                    <constraint firstItem="UJL-Hz-Yw3" firstAttribute="centerY" secondItem="SlJ-Rs-MOG" secondAttribute="centerY" id="sNs-Mx-phI"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rwh-Rk-N0f">
@@ -580,6 +605,7 @@
                             <outlet property="logoutButton" destination="9LP-gB-05a" id="N6A-yq-PUM"/>
                             <outlet property="mapView" destination="rwh-Rk-N0f" id="V71-o2-9IG"/>
                             <outlet property="postLocationButton" destination="UJL-Hz-Yw3" id="NkZ-BW-8ad"/>
+                            <outlet property="reloadButton" destination="SlJ-Rs-MOG" id="RSD-DY-Ia2"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="MapView" image="map" id="BJ4-gL-WRy"/>
@@ -621,5 +647,6 @@
         <image name="list" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>
+        <image name="reload" width="64" height="64"/>
     </resources>
 </document>

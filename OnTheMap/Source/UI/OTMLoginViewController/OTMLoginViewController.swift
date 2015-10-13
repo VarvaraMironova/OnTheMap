@@ -20,7 +20,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    var userModel: OTMUserModel!
+    var userModel: OTMStudentLocationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
         
         rootView.showLoadingView()
         
-        OTMClient.sharedInstance().login(userModel.login, password: userModel.password) {success, error in
+        OTMClient.sharedInstance().login(rootView.loginTextField.text!, password: rootView.passwordTextField.text!) {userModel, success, error in
             if success {
                 OTMClient.sharedInstance().getLocations(){success, error in
                     if success {
@@ -87,21 +87,6 @@ class OTMLoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - UITextFieldDelegate methods
     
     func textFieldDidEndEditing(textField: UITextField) {
-        switch (textField.tag) {
-            //login TextField
-        case 1:
-            userModel.login = textField.text;
-            break
-            
-            //password TextField
-        case 2:
-            userModel.password = textField.text;
-            break
-            
-        default:
-            break
-        }
-        
         rootView.updateButtons()
     }
     

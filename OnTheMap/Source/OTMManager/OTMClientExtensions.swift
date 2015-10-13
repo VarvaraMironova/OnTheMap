@@ -10,18 +10,18 @@ import UIKit
 import Foundation
 
 extension OTMClient {
-    func login(email:String, password:String, completionHandler:(success: Bool, error: NSError?) -> Void) {
+    func login(email:String, password:String, completionHandler:(userModel: OTMStudentLocationModel?, success: Bool, error: NSError?) -> Void) {
         getUserId(email, password: password, completionHandler: {success, error in
             if success {
-                self.getUserInfo(self.userID!, handler: {success, error in
+                self.getUserInfo(self.userID!, handler: {userModel, success, error in
                     if nil == error {
-                        completionHandler(success: true, error: nil)
+                        completionHandler(userModel: userModel, success: true, error: nil)
                     } else {
-                        completionHandler(success: false, error: error)
+                        completionHandler(userModel: userModel, success: false, error: error)
                     }
                 })
             } else {
-                completionHandler(success: false, error:error)
+                completionHandler(userModel: nil, success: false, error:error)
             }
         })
     }
@@ -66,21 +66,19 @@ extension OTMClient {
                         let error = NSError(domain: errorDescription, code: 200, userInfo: nil)
                         completionHandler(success: false, error: error)
                     } else {
-                        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            if let userModel = appDelegate.userModel as OTMUserModel! {
-                                userModel.fill(responseDictionary)
-                                
-                                if let session = responseDictionary["session"] as? [String : String] {
-                                    if let sessionID = session["id"] as String! {
-                                        self.sessionID = sessionID
-                                    }
-                                }
-                                    
-                                self.userID = userModel.uniqueKey
-                                
-                                completionHandler(success: true, error: nil)
+                        if let account = responseDictionary["account"] as? [String : AnyObject] {
+                            if let uniqueKey = account["key"] as! String? {
+                                self.userID = uniqueKey
                             }
                         }
+                        
+                        if let session = responseDictionary["session"] as? [String : String] {
+                            if let sessionID = session["id"] as String? {
+                                self.sessionID = sessionID
+                            }
+                        }
+                            
+                        completionHandler(success: true, error: nil)
                     }
                 } catch {
                     let error = NSError(domain: kOTMMessages.ReadJsonFailure, code: 400, userInfo: nil)
@@ -90,7 +88,7 @@ extension OTMClient {
         }
     }
     
-    func getUserInfo(userID: String, handler: (success: Bool, error: NSError?) -> Void) {
+    func getUserInfo(userID: String, handler: (userModel: OTMStudentLocationModel?, success: Bool, error: NSError?) -> Void) {
         let parameters = [String:String]()
         let method = OTMClient.kOTMMethods.UserData.stringByReplacingOccurrencesOfString("{id}", withString: userID, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         let headers = [String: String]()
@@ -98,26 +96,25 @@ extension OTMClient {
         
         createTask(loginRequest){data, error in
             if (nil != error) {
-                handler(success: false, error: error!)
+                handler(userModel: nil, success: false, error: error!)
             } else {
                 let authData = data.subdataWithRange(NSMakeRange(5, data.length - 5))
                 do {
                     let responseDictionary = try NSJSONSerialization.JSONObjectWithData(authData, options:NSJSONReadingOptions.AllowFragments) as! [String : AnyObject]
                     if let errorDescription = responseDictionary["error"] as? String {
                         let error = NSError(domain: errorDescription, code: 300, userInfo: nil)
-                        handler(success: false, error: error)
+                        handler(userModel: nil, success: false, error: error)
                     } else {
+                        let userModel = OTMStudentLocationModel(result: responseDictionary)
                         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                            if let userModel = appDelegate.userModel as OTMUserModel! {
-                                userModel.fill(responseDictionary)
-                            }
+                            appDelegate.userModel = userModel
                         }
                         
-                        handler(success: true, error: nil)
+                        handler(userModel: userModel, success: true, error: nil)
                     }
                 } catch {
                     let error = NSError(domain: kOTMMessages.ReadJsonFailure, code: 400, userInfo: nil)
-                    handler(success: false, error: error)
+                    handler(userModel: nil, success: false, error: error)
                 }
             }
         }
@@ -164,7 +161,7 @@ extension OTMClient {
         let headers = [OTMClient.kOTMHeaderConstants.kOTMParseIdKey: OTMClient.kOTMKeys.ParseAppID,
                        OTMClient.kOTMHeaderConstants.kOTMParseRestApiKey: OTMClient.kOTMKeys.ParseAPIKey]
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            if let userModel = appDelegate.userModel as OTMUserModel! {
+            if let userModel = appDelegate.userModel as OTMStudentLocationModel! {
                 let body = [
                     "uniqueKey": userModel.uniqueKey,
                     "firstName": userModel.firstName,
@@ -186,13 +183,12 @@ extension OTMClient {
                                 completionHandler(success: false, error:error)
                             } else {
                                 if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    if let userModel = appDelegate.userModel as OTMUserModel! {
-                                        userModel.objectId = response["objectId"] as! String
-                                        
-                                        let dateFormatter = NSDateFormatter()
-                                        dateFormatter.dateFormat = OTMModelConstants.DateFormatter
-                                        userModel.updateDate = dateFormatter.dateFromString(response["createdAt"] as! String)
-                                    }
+                                    var userModel = appDelegate.userModel as OTMStudentLocationModel!
+                                    
+                                    userModel.objectId = response["objectId"] as! String
+                                    let dateFormatter = NSDateFormatter()
+                                    dateFormatter.dateFormat = OTMModelConstants.DateFormatter
+                                    userModel.updateDate = dateFormatter.dateFromString(response["createdAt"] as! String)
                                 }
                                 
                                 completionHandler(success: true, error: kOTMMessages.PostSuccess)
@@ -210,7 +206,7 @@ extension OTMClient {
         let headers = [OTMClient.kOTMHeaderConstants.kOTMParseIdKey: OTMClient.kOTMKeys.ParseAppID,
             OTMClient.kOTMHeaderConstants.kOTMParseRestApiKey: OTMClient.kOTMKeys.ParseAPIKey]
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-            if let userModel = appDelegate.userModel as OTMUserModel! {
+            if let userModel = appDelegate.userModel as OTMStudentLocationModel! {
                 let body = [
                     "uniqueKey": userModel.uniqueKey,
                     "firstName": userModel.firstName,
@@ -232,13 +228,12 @@ extension OTMClient {
                                 completionHandler(success: false, error:error)
                             } else {
                                 if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
-                                    if let userModel = appDelegate.userModel as OTMUserModel! {
-                                        userModel.objectId = response["objectId"] as! String
-                                        
-                                        let dateFormatter = NSDateFormatter()
-                                        dateFormatter.dateFormat = OTMModelConstants.DateFormatter
-                                        userModel.updateDate = dateFormatter.dateFromString(response["updatedAt"] as! String)
-                                    }
+                                    var userModel = appDelegate.userModel as OTMStudentLocationModel!
+                                    userModel.objectId = response["objectId"] as! String
+                                    
+                                    let dateFormatter = NSDateFormatter()
+                                    dateFormatter.dateFormat = OTMModelConstants.DateFormatter
+                                    userModel.updateDate = dateFormatter.dateFromString(response["updatedAt"] as! String)
                                 }
                                 
                                 completionHandler(success: true, error: kOTMMessages.PostSuccess)
